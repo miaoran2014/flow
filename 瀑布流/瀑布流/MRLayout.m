@@ -27,13 +27,19 @@ static CGFloat const margin=10;
     }
     return _maxYs;
 }
-
+//第一次显示,,,数据刷新
 - (void)prepareLayout{
     [super prepareLayout];
 }
 
 //一次性获取所有cell,补充,装饰的布局属性
+//每次滚动时都会调用
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect{
+    
+    //清空maxYs
+    for (int i=0; i<columns; i++) {
+        _maxYs[i]=@(margin);
+    }
     
     NSInteger count=[self.collectionView numberOfItemsInSection:0];
     NSMutableArray* arrM=[NSMutableArray array];
@@ -79,6 +85,7 @@ static CGFloat const margin=10;
     self.maxYs[col]=@(CGRectGetMaxY(attr.frame));
     return attr;
 }
+
 - (CGSize)collectionViewContentSize{
     CGFloat maxY=[self.maxYs[0] floatValue];
     for (int i=1; i<columns; i++) {
