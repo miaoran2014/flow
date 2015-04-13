@@ -11,6 +11,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="kOp-i8-sIn">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewLayout key="collectionViewLayout" id="4g5-wF-jPn" customClass="MRLayout"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="ChW-zL-1dN">
@@ -20,13 +21,19 @@
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j8P-VP-wo7">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8P-VP-wo7">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.11342018550000001" green="1" blue="0.3009608782" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="j8P-VP-wo7" firstAttribute="leading" secondItem="ChW-zL-1dN" secondAttribute="leading" id="Di2-R4-9Le"/>
+                                    <constraint firstAttribute="trailing" secondItem="j8P-VP-wo7" secondAttribute="trailing" id="Kh6-Ea-cHn"/>
+                                    <constraint firstItem="j8P-VP-wo7" firstAttribute="top" secondItem="ChW-zL-1dN" secondAttribute="top" id="Xuo-6O-Tih"/>
+                                    <constraint firstAttribute="bottom" secondItem="j8P-VP-wo7" secondAttribute="bottom" id="xSN-AN-YPc"/>
+                                </constraints>
                             </collectionViewCell>
                         </cells>
                         <connections>

@@ -7,10 +7,26 @@
 //
 
 #import "MRLayout.h"
+#define w [UIScreen mainScreen].bounds.size.width
 static int const columns=3;
 static CGFloat const margin=10;
 
+@interface MRLayout()
+
+@property(nonatomic,strong)NSMutableArray* maxYs;
+@end
+
 @implementation MRLayout
+
+-(NSArray *)maxYs{
+    if(!_maxYs){
+        _maxYs=[NSMutableArray arrayWithCapacity:columns];
+        for (int i=0; i<columns; i++) {
+            _maxYs[i]=@(margin);
+        }
+    }
+    return _maxYs;
+}
 
 - (void)prepareLayout{
     [super prepareLayout];
@@ -18,6 +34,7 @@ static CGFloat const margin=10;
 
 //一次性获取所有cell,补充,装饰的布局属性
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect{
+    
     NSInteger count=[self.collectionView numberOfItemsInSection:0];
     NSMutableArray* arrM=[NSMutableArray array];
     for (int i=0; i<count; i++) {
@@ -41,8 +58,35 @@ static CGFloat const margin=10;
      @property (nonatomic) CGFloat alpha;
      @property (nonatomic) NSInteger zIndex;
      */
-    attr.frame=CGRectMake(100, 100, 100, 100);
+    CGFloat itemW=(w-(columns+1)*margin)/columns;
+    CGFloat itemH=50+arc4random_uniform(200);
+    int col=0;
+    //一个三列,,取出最短的那一列
+    CGFloat minY=[self.maxYs[0] floatValue];
+    for (int i=1; i<columns; i++) {
+        CGFloat temp=[self.maxYs[i] floatValue];
+        if(temp<minY){
+            minY=temp;
+            //找到最短的列
+            col=i;
+        }
+    }
+    //没法改值
+   //self.maxYs[col] floatValue]=[self.maxYs[col] floatValue]+margin+itemH;
+    
+    attr.frame=CGRectMake(margin+col*(margin+itemW), [self.maxYs[col] floatValue]+ margin, itemW, itemH);
+    //更新每一列的maxY
+    self.maxYs[col]=@(CGRectGetMaxY(attr.frame));
     return attr;
 }
-
+- (CGSize)collectionViewContentSize{
+    CGFloat maxY=[self.maxYs[0] floatValue];
+    for (int i=1; i<columns; i++) {
+       CGFloat temp=[self.maxYs[i] floatValue];
+        if(temp>maxY){
+            maxY=temp;
+        }
+    }
+    return CGSizeMake(w, maxY);
+}
 @end
