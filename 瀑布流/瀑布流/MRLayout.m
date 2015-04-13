@@ -14,33 +14,15 @@ static CGFloat const margin=10;
 @interface MRLayout()
 
 @property(nonatomic,strong)NSMutableArray* maxYs;
+@property(nonatomic,strong)NSMutableArray*attrs;
 @end
 
 @implementation MRLayout
 
--(NSArray *)maxYs{
-    if(!_maxYs){
-        _maxYs=[NSMutableArray arrayWithCapacity:columns];
-        for (int i=0; i<columns; i++) {
-            _maxYs[i]=@(margin);
-        }
-    }
-    return _maxYs;
-}
+
 //第一次显示,,,数据刷新
 - (void)prepareLayout{
     [super prepareLayout];
-}
-
-//一次性获取所有cell,补充,装饰的布局属性
-//每次滚动时都会调用
-- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect{
-    
-    //清空maxYs
-    for (int i=0; i<columns; i++) {
-        _maxYs[i]=@(margin);
-    }
-    
     NSInteger count=[self.collectionView numberOfItemsInSection:0];
     NSMutableArray* arrM=[NSMutableArray array];
     for (int i=0; i<count; i++) {
@@ -48,8 +30,21 @@ static CGFloat const margin=10;
         UICollectionViewLayoutAttributes* attr=[self layoutAttributesForItemAtIndexPath:path];
         [arrM addObject:attr];
     }
-    return arrM;
+    self.attrs=[arrM copy];
 }
+
+//一次性获取所有cell,补充,装饰的布局属性
+//每次滚动时都会调用
+//所有的控件位置已经算完,,无需重复计算位置
+- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect{
+//    //清空maxYs
+//    for (int i=0; i<columns; i++) {
+//        _maxYs[i]=@(margin);
+//    }
+    
+    return self.attrs;
+}
+
 //为layoutAttributesForElementsInRect返回的数组里的布局属性进行布局
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath{
     //获取self layoutAttributesForItemAtIndexPath:path 传递过来 指定item的布局属性
@@ -94,6 +89,22 @@ static CGFloat const margin=10;
             maxY=temp;
         }
     }
-    return CGSizeMake(w, maxY);
+    return CGSizeMake(w, maxY+margin);
+}
+-(NSArray *)maxYs{
+    if(!_maxYs){
+        _maxYs=[NSMutableArray arrayWithCapacity:columns];
+        for (int i=0; i<columns; i++) {
+            _maxYs[i]=@(margin);
+        }
+    }
+    return _maxYs;
+}
+
+-(NSArray *)attrs{
+    if(!_attrs){
+        _attrs=[NSMutableArray arrayWithCapacity:[self.collectionView numberOfItemsInSection:0 ]];
+    }
+    return _attrs;
 }
 @end
