@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		849574AA1ADB79B800FEDAC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 849574A91ADB79B800FEDAC2 /* main.m */; };
 		849574AD1ADB79B800FEDAC2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 849574AC1ADB79B800FEDAC2 /* AppDelegate.m */; };
-		849574B01ADB79B800FEDAC2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849574AF1ADB79B800FEDAC2 /* ViewController.m */; };
 		849574B31ADB79B800FEDAC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849574B11ADB79B800FEDAC2 /* Main.storyboard */; };
 		849574B51ADB79B800FEDAC2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849574B41ADB79B800FEDAC2 /* Images.xcassets */; };
 		849574B81ADB79B800FEDAC2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849574B61ADB79B800FEDAC2 /* LaunchScreen.xib */; };
 		849574C41ADB79B800FEDAC2 /* ___Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849574C31ADB79B800FEDAC2 /* ___Tests.m */; };
+		849574CF1ADB80AB00FEDAC2 /* MRflowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849574CE1ADB80AB00FEDAC2 /* MRflowController.m */; };
+		84B0D2B61ADB9CAD00542183 /* MRLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0D2B51ADB9CAD00542183 /* MRLayout.m */; };
+		84B0D2B91ADBA54D00542183 /* MRHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0D2B81ADBA54D00542183 /* MRHeader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +34,18 @@
 		849574A91ADB79B800FEDAC2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		849574AB1ADB79B800FEDAC2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		849574AC1ADB79B800FEDAC2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		849574AE1ADB79B800FEDAC2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		849574AF1ADB79B800FEDAC2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		849574B21ADB79B800FEDAC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		849574B41ADB79B800FEDAC2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		849574B71ADB79B800FEDAC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		849574BD1ADB79B800FEDAC2 /* 瀑布流Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "瀑布流Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		849574C21ADB79B800FEDAC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		849574C31ADB79B800FEDAC2 /* ___Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "___Tests.m"; sourceTree = "<group>"; };
+		849574CD1ADB80AB00FEDAC2 /* MRflowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRflowController.h; sourceTree = "<group>"; };
+		849574CE1ADB80AB00FEDAC2 /* MRflowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRflowController.m; sourceTree = "<group>"; };
+		84B0D2B41ADB9CAD00542183 /* MRLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRLayout.h; sourceTree = "<group>"; };
+		84B0D2B51ADB9CAD00542183 /* MRLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRLayout.m; sourceTree = "<group>"; };
+		84B0D2B71ADBA54D00542183 /* MRHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRHeader.h; sourceTree = "<group>"; };
+		84B0D2B81ADBA54D00542183 /* MRHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRHeader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +89,16 @@
 			children = (
 				849574AB1ADB79B800FEDAC2 /* AppDelegate.h */,
 				849574AC1ADB79B800FEDAC2 /* AppDelegate.m */,
-				849574AE1ADB79B800FEDAC2 /* ViewController.h */,
-				849574AF1ADB79B800FEDAC2 /* ViewController.m */,
 				849574B11ADB79B800FEDAC2 /* Main.storyboard */,
 				849574B41ADB79B800FEDAC2 /* Images.xcassets */,
 				849574B61ADB79B800FEDAC2 /* LaunchScreen.xib */,
 				849574A71ADB79B800FEDAC2 /* Supporting Files */,
+				849574CD1ADB80AB00FEDAC2 /* MRflowController.h */,
+				849574CE1ADB80AB00FEDAC2 /* MRflowController.m */,
+				84B0D2B41ADB9CAD00542183 /* MRLayout.h */,
+				84B0D2B51ADB9CAD00542183 /* MRLayout.m */,
+				84B0D2B71ADBA54D00542183 /* MRHeader.h */,
+				84B0D2B81ADBA54D00542183 /* MRHeader.m */,
 			);
 			path = "瀑布流";
 			sourceTree = "<group>";
@@ -219,8 +229,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				849574B01ADB79B800FEDAC2 /* ViewController.m in Sources */,
 				849574AD1ADB79B800FEDAC2 /* AppDelegate.m in Sources */,
+				849574CF1ADB80AB00FEDAC2 /* MRflowController.m in Sources */,
+				84B0D2B91ADBA54D00542183 /* MRHeader.m in Sources */,
+				84B0D2B61ADB9CAD00542183 /* MRLayout.m in Sources */,
 				849574AA1ADB79B800FEDAC2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +424,7 @@
 				849574C91ADB79B800FEDAC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		849574CA1ADB79B800FEDAC2 /* Build configuration list for PBXNativeTarget "瀑布流Tests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +433,7 @@
 				849574CC1ADB79B800FEDAC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

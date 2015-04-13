@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MRHeader.h
 //  瀑布流
 //
 //  Created by admin on 15/4/13.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MRHeader : UICollectionReusableView
 
 @end
-
